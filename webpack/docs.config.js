@@ -39,6 +39,7 @@ export default {
     loaders: [
       { test: /\.js/, loader: `${reactHot}${jsLoader}`, exclude: /node_modules|Samples\.js/ },
       { test: /Samples.js/, loader: `${reactHot}transform?brfs!${jsLoader}` },
+      { test: /\.(scss|sass)$/, loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!sass${cssSourceMap}`) },
       { test: /\.css/,
         loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}`) },
       { test: /\.less$/,
